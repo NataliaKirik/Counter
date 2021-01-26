@@ -2,12 +2,14 @@ import React from 'react';
 import s from './Display.module.css'
 
 type DisplayProps = {
-    displayValue: number
+    displayValue: string
+    maxValue: string
 }
-export const Display = (props:DisplayProps) => {
+export const Display = (props: DisplayProps) => {
     return (
-        <div>
-            <input type="text" value={props.displayValue} className={props.displayValue === 5 ? s.error : s.ok}/>
+        <div className={s.inputWrapper}>
+            <input type="text" value={props.displayValue}
+                   className={props.displayValue === 'Incorrect value!' || props.displayValue === props.maxValue ? s.default + ' ' + s.error : s.default}/>
         </div>
     )
 }

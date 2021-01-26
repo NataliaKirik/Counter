@@ -1,0 +1,23 @@
+.text1 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.valueWrapper {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+}
+
+
+.entryDisplayInput {
+    background: rgba(255, 254, 254, 0.4);
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 130px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}

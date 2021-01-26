@@ -1,0 +1,37 @@
+@font-face {
+    font-family: Potta One; /* Имя шрифта */
+    src: url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap'); /* Путь к файлу со шрифтом */
+}
+body {
+    background-image: url("/src/img/pexels-photo-4173624.jpeg");
+    font-family: 'Potta One', cursive
+
+}
+
+.App {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+.counterWrapper {
+    width: 350px;
+    height: 350px;
+    border: 3px solid black;
+    border-radius: 20%;
+    margin: 30px;
+    background: rgba(167, 166, 166, 0.4);
+}
+
+.buttonsWrapper {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    width: 330px;
+    align-items: center;
+}
+
+.buttonOnEntryDisplay{
+    display: flex;
+    justify-content: center;
+}

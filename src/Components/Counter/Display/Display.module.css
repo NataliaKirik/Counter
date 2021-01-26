@@ -1,6 +1,25 @@
-.error{
-    color: red;
+.inputWrapper {
+    display: flex;
+    justify-content: center;
+    height: 200px;
 }
-.ok{
-    color: blue;
+
+input.error {
+    color: rgb(236, 155, 150);
+    font-family: 'Potta One', cursive;
+    font-size: 30px;
+}
+
+.default {
+    margin: 20px;
+    text-align: center;
+    outline: none;
+    display: flex;
+    justify-content: left;
+    background: rgba(255, 254, 254, 0.4);
+    font-size: 27px;
+    width: 265px;
+    height: 130px;
+    font-weight: bold;
+    border: 1px solid black;
 }

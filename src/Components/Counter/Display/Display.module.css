@@ -18,7 +18,7 @@ input.error {
     display: flex;
     justify-content: left;
     background: rgba(255, 254, 254, 0.4);
-    font-size: 27px;
+    font-size: 20px;
     width: 265px;
     height: 130px;
     font-weight: bold;

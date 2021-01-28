@@ -5,10 +5,11 @@ import s from "./App.module.css"
 import {EntryDisplay} from "./Components/SetValueCounter/EntryDisplay/EntryDisplay";
 
 function App() {
+
     let buttonName = ['inc', 'reset', 'set']
-    let [displayValue, setDisplayValue] = useState('0')
-    let [maxValue, setMaxValue] = useState('0')
-    let [startValue, setStartValue] = useState('0')
+    let [displayValue, setDisplayValue] = useState<string>('0')
+    let [maxValue, setMaxValue] = useState<string>(localStorage.getItem('maxValue') || '0')
+    let [startValue, setStartValue] = useState<string>(localStorage.getItem('startValue') || '0')
 
 
     function onButtonIncClick() {
@@ -17,11 +18,13 @@ function App() {
     }
 
     function onButtonResetClick() {
-        setDisplayValue('0')
+        setDisplayValue(startValue)
     }
 
     function onButtonSetClick() {
         setDisplayValue(startValue)
+        localStorage.setItem('maxValue', maxValue)
+        localStorage.setItem('startValue', startValue)
     }
 
     function onChangeMaxValue(e: ChangeEvent<HTMLInputElement>) {
@@ -30,8 +33,7 @@ function App() {
             setDisplayValue('Incorrect value!')
             setMaxValue(currentValue)
 
-        } else if (currentValue === startValue) {
-
+        } else if (+currentValue <= +startValue) {
             setDisplayValue('Incorrect value!')
             setMaxValue(currentValue)
         } else {
@@ -40,15 +42,14 @@ function App() {
         }
     }
 
-
     function onChangeStartValue(e: ChangeEvent<HTMLInputElement>) {
         const currentValue = e.currentTarget.value
         if (currentValue < "0") {
             setDisplayValue('Incorrect value!')
             setStartValue(currentValue)
 
-        } else if (currentValue === maxValue) {
-            setMaxValue(currentValue)
+        } else if (+currentValue >= +maxValue) {
+            setStartValue(currentValue)
             setDisplayValue('Incorrect value!')
         } else {
             setDisplayValue("enter values and press 'set'")
@@ -64,7 +65,7 @@ function App() {
                 <Display displayValue={displayValue} maxValue={maxValue}/>
                 <div className={s.buttonsWrapper}>
                     <Button onButtonClick={onButtonIncClick} name={buttonName[0]}
-                            disabled={displayValue === 'enter values and press \'set\'' || displayValue === 'Incorrect value!'}/>
+                            disabled={displayValue === 'enter values and press \'set\'' || displayValue === 'Incorrect value!' || displayValue === maxValue}/>
                     <Button onButtonClick={onButtonResetClick} name={buttonName[1]}
                             disabled={displayValue === '0' || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
                 </div>

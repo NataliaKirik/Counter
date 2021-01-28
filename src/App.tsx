@@ -21,22 +21,39 @@ function App() {
     }
 
     function onButtonSetClick() {
-        if (maxValue < '0' || startValue < '0') {
-            setDisplayValue('Incorrect value!')
-        } else {
-            setDisplayValue(startValue)
-        }
+        setDisplayValue(startValue)
     }
 
     function onChangeMaxValue(e: ChangeEvent<HTMLInputElement>) {
         const currentValue = e.currentTarget.value
-        let currentValueString = currentValue.toString()
-        setMaxValue(currentValueString)
+        if (currentValue < "0") {
+            setDisplayValue('Incorrect value!')
+            setMaxValue(currentValue)
+
+        } else if (currentValue === startValue) {
+
+            setDisplayValue('Incorrect value!')
+            setMaxValue(currentValue)
+        } else {
+            setDisplayValue("enter values and press 'set'")
+            setMaxValue(currentValue)
+        }
     }
+
 
     function onChangeStartValue(e: ChangeEvent<HTMLInputElement>) {
         const currentValue = e.currentTarget.value
-        setStartValue(currentValue)
+        if (currentValue < "0") {
+            setDisplayValue('Incorrect value!')
+            setStartValue(currentValue)
+
+        } else if (currentValue === maxValue) {
+            setMaxValue(currentValue)
+            setDisplayValue('Incorrect value!')
+        } else {
+            setDisplayValue("enter values and press 'set'")
+            setStartValue(currentValue)
+        }
     }
 
 
@@ -47,9 +64,9 @@ function App() {
                 <Display displayValue={displayValue} maxValue={maxValue}/>
                 <div className={s.buttonsWrapper}>
                     <Button onButtonClick={onButtonIncClick} name={buttonName[0]}
-                            disabled={displayValue === maxValue || displayValue === 'Incorrect value!'}/>
+                            disabled={displayValue === 'enter values and press \'set\'' || displayValue === 'Incorrect value!'}/>
                     <Button onButtonClick={onButtonResetClick} name={buttonName[1]}
-                            disabled={displayValue === '0' || displayValue === 'Incorrect value!'}/>
+                            disabled={displayValue === '0' || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
                 </div>
             </div>
             {/*setValueCounter*/}
@@ -57,7 +74,7 @@ function App() {
                 <EntryDisplay maxValue={maxValue} startValue={startValue} onChangeMaxValue={onChangeMaxValue}
                               onChangeStartValue={onChangeStartValue}/>
                 <div className={s.buttonOnEntryDisplay}><Button onButtonClick={onButtonSetClick} name={buttonName[2]}
-                                                                disabled={false}/></div>
+                                                                disabled={displayValue === 'Incorrect value!'}/></div>
             </div>
         </div>
     );

@@ -8,6 +8,7 @@ input.error {
     color: rgb(236, 155, 150);
     font-family: 'Potta One', cursive;
     font-size: 30px;
+    border: rgb(236, 155, 150) 1px solid;
 }
 
 .default {

@@ -74,8 +74,9 @@ function App() {
             <div className={s.counterWrapper}>
                 <EntryDisplay maxValue={maxValue} startValue={startValue} onChangeMaxValue={onChangeMaxValue}
                               onChangeStartValue={onChangeStartValue}/>
-                <div className={s.buttonOnEntryDisplay}><Button onButtonClick={onButtonSetClick} name={buttonName[2]}
-                                                                disabled={displayValue === 'Incorrect value!'}/></div>
+                <div className={s.buttonOnEntryDisplay}>
+                    <Button onButtonClick={onButtonSetClick} name={buttonName[2]}
+                            disabled={displayValue === 'Incorrect value!'}/></div>
             </div>
         </div>
     );

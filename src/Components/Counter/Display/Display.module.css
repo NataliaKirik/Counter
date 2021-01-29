@@ -12,6 +12,7 @@ input.error {
 }
 
 .default {
+    font-family: 'Potta One', cursive;
     margin: 20px;
     text-align: center;
     outline: none;
@@ -19,8 +20,8 @@ input.error {
     justify-content: left;
     background: rgba(255, 254, 254, 0.4);
     font-size: 20px;
-    width: 265px;
-    height: 130px;
+    width: 280px;
+    height: 145px;
     font-weight: bold;
     border: 1px solid black;
 }

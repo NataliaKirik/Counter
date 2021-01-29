@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/NataliaKirik/Counter/static/css/main.7cdcb7b2.chunk.css",
+    "main.js": "/NataliaKirik/Counter/static/js/main.fdb39476.chunk.js",
+    "main.js.map": "/NataliaKirik/Counter/static/js/main.fdb39476.chunk.js.map",
+    "runtime-main.js": "/NataliaKirik/Counter/static/js/runtime-main.d6cf9ef3.js",
+    "runtime-main.js.map": "/NataliaKirik/Counter/static/js/runtime-main.d6cf9ef3.js.map",
+    "static/js/2.b43f69a3.chunk.js": "/NataliaKirik/Counter/static/js/2.b43f69a3.chunk.js",
+    "static/js/2.b43f69a3.chunk.js.map": "/NataliaKirik/Counter/static/js/2.b43f69a3.chunk.js.map",
+    "static/js/3.e3adf20f.chunk.js": "/NataliaKirik/Counter/static/js/3.e3adf20f.chunk.js",
+    "static/js/3.e3adf20f.chunk.js.map": "/NataliaKirik/Counter/static/js/3.e3adf20f.chunk.js.map",
+    "index.html": "/NataliaKirik/Counter/index.html",
+    "static/css/main.7cdcb7b2.chunk.css.map": "/NataliaKirik/Counter/static/css/main.7cdcb7b2.chunk.css.map",
+    "static/js/2.b43f69a3.chunk.js.LICENSE.txt": "/NataliaKirik/Counter/static/js/2.b43f69a3.chunk.js.LICENSE.txt",
+    "static/media/App.module.css": "/NataliaKirik/Counter/static/media/pexels-photo-4173624.c718895f.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d6cf9ef3.js",
+    "static/js/2.b43f69a3.chunk.js",
+    "static/css/main.7cdcb7b2.chunk.css",
+    "static/js/main.fdb39476.chunk.js"
+  ]
+}

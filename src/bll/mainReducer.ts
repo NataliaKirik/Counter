@@ -1,45 +1,51 @@
-export const SET_MIN_VALUE = 'SET_MIN_VALUE'
-export const SET_MAX_VALUE = 'SET-MAX-VALUE'
-export const SET_START_VALUE = 'SET_START_VALUE'
-export const SET_DISPLAY_VALUE = 'SET_DISPLAY_VALUE'
-// export const SET_LOCALSTORAGE_COUNTS = 'SET-LOCALSTORAGE-COUNTS'
+const CHANGE_MAX_VALUE = 'CHANGE_MAX_VALUE'
+const CHANGE_START_VALUE = 'CHANGE_START_VALUE'
+const CHANGE_DISPLAY_VALUE = 'CHANGE_DISPLAY_VALUE'
 
-
-const getValuesFromLocalStorage = (): { minValue: number, maxValue: number } => {
-    let minValue = 0
-    let maxValue = 0
-
-    try {
-        minValue = Number(localStorage.getItem("minValue"))
-        maxValue = Number(localStorage.getItem("maxValue"))
-    } catch {
-        return {minValue, maxValue}
-    }
-    return {minValue, maxValue}
-}
 
 const initialState = {
-    minCount: getValuesFromLocalStorage().minValue as number,
-    maxCount: getValuesFromLocalStorage().maxValue as number,
     maxValue: 0,
     startValue: 0,
-    valueOnDisplay: "enter values and press 'set'" as number | string
-
+    displayValue: "enter values and press 'set'" as number | string
 }
-
-export const counterReducer = (state: CounterStateType = initialState, action: any): CounterStateType => {
+export const mainReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
-        case SET_MIN_VALUE:
-        case SET_MAX_VALUE:
-        case   SET_START_VALUE:
+        case CHANGE_MAX_VALUE: {
+            return {
+                ...state,
+                maxValue: action.maxValue
+            }
 
+        }
+        case CHANGE_START_VALUE: {
+            return {
+                ...state,
+                startValue: action.startValue
+            }
+        }
+        case CHANGE_DISPLAY_VALUE: {
+            return {
+                ...state,
+                displayValue: action.displayValue
+            }
+        }
         default:
             return state
     }
-
 }
+// ActionCreators
+export const setStartValue = (startValue: number) => ({type: 'CHANGE_START_VALUE', startValue} as const)
+export const setMaxValue = (maxValue: number) => ({type: 'CHANGE_MAX_VALUE', maxValue} as const)
+export const setDisplayValue = (displayValue: number | string) => ({
+    type: 'CHANGE_DISPLAY_VALUE',
+    displayValue
+} as const)
 
 
 //types
-export type CounterStateType = typeof initialState
-// export type ActionsTypes =
+export type initialStateType = typeof initialState
+type setStartValueType = ReturnType<typeof setStartValue>
+type setMaxValueType = ReturnType<typeof setMaxValue>
+type setDisplayValueType = ReturnType<typeof setDisplayValue>
+type ActionsTypes = setStartValueType | setMaxValueType | setDisplayValueType
+

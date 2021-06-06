@@ -13,7 +13,7 @@ function App() {
 
 
     function onButtonIncClick() {
-        let newValue = +displayValue + 1
+        let newValue = parseInt(displayValue) + 1
         setDisplayValue(newValue.toString())
     }
 
@@ -32,7 +32,6 @@ function App() {
         if (currentValue < "0") {
             setDisplayValue('Incorrect value!')
             setMaxValue(currentValue)
-
         } else if (+currentValue <= +startValue) {
             setDisplayValue('Incorrect value!')
             setMaxValue(currentValue)
@@ -60,16 +59,8 @@ function App() {
 
     return (
         <div className={s.App}>
-            {/*counter1*/}
-            <div className={s.counterWrapper}>
-                <Display displayValue={displayValue} maxValue={maxValue}/>
-                <div className={s.buttonsWrapper}>
-                    <Button onButtonClick={onButtonIncClick} name={buttonName[0]}
-                            disabled={displayValue === 'enter values and press \'set\'' || displayValue === 'Incorrect value!' || displayValue === maxValue}/>
-                    <Button onButtonClick={onButtonResetClick} name={buttonName[1]}
-                            disabled={displayValue === '0' || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
-                </div>
-            </div>
+
+            <div className={s.text}>Redux counters:</div>
             {/*setValueCounter*/}
             <div className={s.counterWrapper}>
                 <EntryDisplay maxValue={maxValue} startValue={startValue} onChangeMaxValue={onChangeMaxValue}
@@ -78,6 +69,20 @@ function App() {
                     <Button onButtonClick={onButtonSetClick} name={buttonName[2]}
                             disabled={displayValue === 'Incorrect value!'}/></div>
             </div>
+            {/*counter1*/}
+            <div className={s.counterWrapper}>
+                <Display displayValue={displayValue} maxValue={maxValue}/>
+                <div className={s.buttonsWrapper}>
+                    <Button onButtonClick={onButtonIncClick} name={buttonName[0]}
+                            disabled={displayValue === 'enter values and press \'set\''
+                            || displayValue === 'Incorrect value!'
+                            || displayValue === maxValue}/>
+                    <Button onButtonClick={onButtonResetClick} name={buttonName[1]}
+                            disabled={displayValue === '0' || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
+                </div>
+            </div>
+
+
         </div>
     );
 }

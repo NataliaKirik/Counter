@@ -2,35 +2,38 @@
     font-family: Potta One; /* Имя шрифта */
     src: url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap'); /* Путь к файлу со шрифтом */
 }
+
 body {
-    background-image: url("/src/img/pexels-photo-4173624.jpeg");
+    /*background-image: url("/src/img/pexels-photo-4173624.jpeg");*/
     font-family: 'Potta One', cursive
 
 }
 
 .App {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: center;
 }
 
+.text {
+    font-size: x-large;
+}
+
 .counterWrapper {
-    width: 370px;
-    height: 370px;
+    width: 300px;
+    height: 250px;
     border: 3px solid black;
     border-radius: 20%;
-    margin: 50px;
+    margin: 6px 40px;
     background: rgba(167, 166, 166, 0.4);
 }
 
 .buttonsWrapper {
     display: flex;
-    height: 100px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.buttonOnEntryDisplay{
+.buttonOnEntryDisplay {
     display: flex;
     justify-content: center;
 }

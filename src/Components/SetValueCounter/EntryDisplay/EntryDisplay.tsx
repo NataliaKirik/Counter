@@ -12,12 +12,18 @@ type  EntryDisplayPropsType = {
 export const EntryDisplay = (props: EntryDisplayPropsType) => {
 
     return (
-
         <div>
             <div className={s.valueWrapper}>
                 <div className={s.text1}>Max value:</div>
-                <input type="number" value={props.maxValue} onChange={props.onChangeMaxValue}
-                       className={props.maxValue < '0' || props.maxValue === props.startValue || +props.maxValue < +props.startValue ? s.entryDisplayInput + ' ' + s.error : s.entryDisplayInput}/>
+                <input type="number"
+                       value={props.maxValue}
+                       onChange={props.onChangeMaxValue}
+                       className={
+                           props.maxValue < '0'
+                           || props.maxValue === props.startValue
+                           || +props.maxValue < +props.startValue
+                               ? s.entryDisplayInput + ' ' + s.error
+                               : s.entryDisplayInput}/>
             </div>
             <div className={s.valueWrapper}>
                 <div className={s.text1}>Start value:</div>

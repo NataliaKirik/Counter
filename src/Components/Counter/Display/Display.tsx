@@ -2,8 +2,8 @@ import React from 'react';
 import s from './Display.module.css'
 
 type DisplayProps = {
-    displayValue: string
-    maxValue: string
+    displayValue: string | number
+    maxValue: string | number
 }
 export const Display = (props: DisplayProps) => {
     return (

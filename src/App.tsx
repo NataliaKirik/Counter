@@ -7,29 +7,33 @@ import {EntryDisplay} from "./Components/SetValueCounter/EntryDisplay/EntryDispl
 function App() {
 
     let buttonName = ['inc', 'reset', 'set']
-    let [displayValue, setDisplayValue] = useState<string>('0')
-    let [maxValue, setMaxValue] = useState<string>(localStorage.getItem('maxValue') || '0')
-    let [startValue, setStartValue] = useState<string>(localStorage.getItem('startValue') || '0')
+    let [displayValue, setDisplayValue] = useState<string | number>(0)
+    let [maxValue, setMaxValue] = useState<string | number>(localStorage.getItem('maxValue') || 0)
+    let [startValue, setStartValue] = useState<string | number>(localStorage.getItem('startValue') || 0)
 
 
     function onButtonIncClick() {
-        let newValue = parseInt(displayValue) + 1
-        setDisplayValue(newValue.toString())
+        let newValue = +displayValue + 1
+        setDisplayValue(newValue)
     }
 
     function onButtonResetClick() {
-        setDisplayValue(startValue)
+        setDisplayValue(+startValue)
     }
 
     function onButtonSetClick() {
-        setDisplayValue(startValue)
-        localStorage.setItem('maxValue', maxValue)
-        localStorage.setItem('startValue', startValue)
+        setDisplayValue(+startValue)
+        if (typeof maxValue === "string") {
+            localStorage.setItem('maxValue', maxValue)
+        }
+        if (typeof startValue === "string") {
+            localStorage.setItem('startValue', startValue)
+        }
     }
 
     function onChangeMaxValue(e: ChangeEvent<HTMLInputElement>) {
         const currentValue = e.currentTarget.value
-        if (currentValue < "0") {
+        if (+currentValue < 0) {
             setDisplayValue('Incorrect value!')
             setMaxValue(currentValue)
         } else if (+currentValue <= +startValue) {
@@ -43,7 +47,7 @@ function App() {
 
     function onChangeStartValue(e: ChangeEvent<HTMLInputElement>) {
         const currentValue = e.currentTarget.value
-        if (currentValue < "0") {
+        if (+currentValue < 0) {
             setDisplayValue('Incorrect value!')
             setStartValue(currentValue)
 
@@ -78,7 +82,7 @@ function App() {
                             || displayValue === 'Incorrect value!'
                             || displayValue === maxValue}/>
                     <Button onButtonClick={onButtonResetClick} name={buttonName[1]}
-                            disabled={displayValue === '0' || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
+                            disabled={displayValue === 0 || displayValue === 'Incorrect value!' || displayValue === 'enter values and press \'set\''}/>
                 </div>
             </div>
 

@@ -2,8 +2,8 @@ import React, {ChangeEvent} from 'react';
 import s from './EntryDisplay.module.css'
 
 type  EntryDisplayPropsType = {
-    maxValue: string
-    startValue: string
+    maxValue: string | number
+    startValue: string | number
     onChangeMaxValue: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeStartValue: (e: ChangeEvent<HTMLInputElement>) => void
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Display} from "../Components/Counter/Display/Display";
 import {Button} from "../Components/Counter/Button/Button";
 import s from "./App.module.css"
@@ -11,6 +11,14 @@ function App() {
     const state = useSelector<AppRootStateType, initialStateType>(state => state.main)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        let startValueFromLS = Number(localStorage.getItem("startValue"))
+        let maxValueFromLS = Number(localStorage.getItem("maxValue"))
+
+        dispatch(setStartValue(startValueFromLS))
+        dispatch(setMaxValue(maxValueFromLS))
+
+    }, [dispatch])
 
     function onButtonIncClick() {
         dispatch(setDisplayValue(+state.displayValue + 1))

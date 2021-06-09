@@ -67,9 +67,8 @@ function App() {
 
 
     return (
-        <div className={s.App}>
 
-            <div className={s.text}>Redux counters:</div>
+        <div className={s.App}>
             <div className={s.counterWrapper}>
                 <EntryDisplay maxValue={state.maxValue} startValue={state.startValue}
                               onChangeMaxValue={onChangeMaxValue}
@@ -89,8 +88,6 @@ function App() {
                             disabled={state.displayValue === 0 || state.displayValue === 'Incorrect value!' || state.displayValue === 'enter values and press \'set\''}/>
                 </div>
             </div>
-
-
         </div>
     );
 }

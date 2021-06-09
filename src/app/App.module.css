@@ -4,7 +4,8 @@
 }
 
 body {
-    /*background-image: url("/src/img/pexels-photo-4173624.jpeg");*/
+    background-image: url("https://images.pexels.com/photos/5918044/pexels-photo-5918044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
     font-family: 'Potta One', cursive
 
 }
@@ -20,10 +21,10 @@ body {
 
 .counterWrapper {
     width: 300px;
-    height: 250px;
+    height: 270px;
     border: 3px solid black;
-    border-radius: 20%;
-    margin: 6px 40px;
+    border-radius: 15%;
+    margin: 50px;
     background: rgba(167, 166, 166, 0.4);
 }
 

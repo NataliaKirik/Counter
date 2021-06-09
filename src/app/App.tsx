@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Display} from "../Components/Counter/Display/Display";
 import {Button} from "../Components/Counter/Button/Button";
 import s from "./App.module.css"
@@ -11,6 +11,14 @@ function App() {
     const state = useSelector<AppRootStateType, initialStateType>(state => state.main)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        let startValueFromLS = Number(localStorage.getItem("startValue"))
+        let maxValueFromLS = Number(localStorage.getItem("maxValue"))
+
+        dispatch(setStartValue(startValueFromLS))
+        dispatch(setMaxValue(maxValueFromLS))
+
+    }, [dispatch])
 
     function onButtonIncClick() {
         dispatch(setDisplayValue(+state.displayValue + 1))
@@ -59,9 +67,8 @@ function App() {
 
 
     return (
-        <div className={s.App}>
 
-            <div className={s.text}>Redux counters:</div>
+        <div className={s.App}>
             <div className={s.counterWrapper}>
                 <EntryDisplay maxValue={state.maxValue} startValue={state.startValue}
                               onChangeMaxValue={onChangeMaxValue}
@@ -81,8 +88,6 @@ function App() {
                             disabled={state.displayValue === 0 || state.displayValue === 'Incorrect value!' || state.displayValue === 'enter values and press \'set\''}/>
                 </div>
             </div>
-
-
         </div>
     );
 }
